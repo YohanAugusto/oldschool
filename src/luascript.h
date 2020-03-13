@@ -682,6 +682,7 @@ class LuaScriptInterface
 		// Item
 		static int luaItemCreate(lua_State* L);
 
+		static int luaItemGetAutoID(lua_State* L);
 		static int luaItemIsItem(lua_State* L);
 
 		static int luaItemGetParent(lua_State* L);

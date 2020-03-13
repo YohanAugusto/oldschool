@@ -587,6 +587,12 @@ class Item : virtual public Thing
 			return nullptr;
 		}
 
+		void setAutoID() {
+			if (autoID == 0) {
+				autoID = itemAutoID++;
+			}
+		}
+
 		const std::string& getStrAttr(itemAttrTypes type) const {
 			if (!attributes) {
 				return ItemAttributes::emptyString;
@@ -995,6 +1001,10 @@ class Item : virtual public Thing
 			}
 		}
 
+		uint32_t getAutoID() {
+			return autoID;
+		}
+
 		Cylinder* getParent() const override {
 			return parent;
 		}
@@ -1009,6 +1019,8 @@ class Item : virtual public Thing
 			return !parent || parent->isRemoved();
 		}
 
+		static uint32_t itemAutoID;
+
 	protected:
 		Cylinder* parent = nullptr;
 
@@ -1019,6 +1031,7 @@ class Item : virtual public Thing
 
 		std::unique_ptr<ItemAttributes> attributes;
 
+		uint32_t autoID = 0;
 		uint32_t referenceCounter = 0;
 
 		uint8_t count = 1; // number of stacked items

@@ -120,6 +120,13 @@ class Game
 		static std::string getTradeErrorDescription(ReturnValue ret, Item* item);
 
 		/**
+		  * Returns an item based on the auto id identifier
+		  * \param id is the auto id to get an item pointer to
+		  * \returns an Item pointer to the item
+		  */
+		Item* getItemByAutoID(uint32_t id);
+
+		/**
 		  * Returns a creature based on the unique creature identifier
 		  * \param id is the unique creature id to get a creature pointer to
 		  * \returns A Creature pointer to the creature
@@ -471,6 +478,9 @@ class Game
 		const std::unordered_map<uint32_t, Player*>& getPlayers() const { return players; }
 		const std::map<uint32_t, Npc*>& getNpcs() const { return npcs; }
 
+		void addItem(Item* item);
+		void removeItem(Item* item);
+
 		void addPlayer(Player* player);
 		void removePlayer(Player* player);
 
@@ -536,6 +546,7 @@ class Game
 
 		std::map<uint32_t, Npc*> npcs;
 		std::map<uint32_t, Monster*> monsters;
+		std::map<uint32_t, Item*> items;
 
 		//list of items that are in trading state, mapped to the player
 		std::map<Item*, uint32_t> tradeItems;

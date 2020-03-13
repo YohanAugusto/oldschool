@@ -2120,6 +2120,7 @@ void LuaScriptInterface::registerFunctions()
 	registerClass("Item", "", LuaScriptInterface::luaItemCreate);
 	registerMetaMethod("Item", "__eq", LuaScriptInterface::luaUserdataCompare);
 
+	registerMethod("Item", "getAutoID", LuaScriptInterface::luaItemGetAutoID);
 	registerMethod("Item", "isItem", LuaScriptInterface::luaItemIsItem);
 
 	registerMethod("Item", "getParent", LuaScriptInterface::luaItemGetParent);
@@ -6020,13 +6021,25 @@ int LuaScriptInterface::luaModalWindowSendToPlayer(lua_State* L)
 // Item
 int LuaScriptInterface::luaItemCreate(lua_State* L)
 {
-	// Item(uid)
+	// Item(autoID)
 	uint32_t id = getNumber<uint32_t>(L, 2);
 
-	Item* item = getScriptEnv()->getItemByUID(id);
+	Item* item = g_game.getItemByAutoID(id);
 	if (item) {
 		pushUserdata<Item>(L, item);
 		setItemMetatable(L, -1, item);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaItemGetAutoID(lua_State* L)
+{
+	// item:getAutoID()
+	Item* item = getUserdata<Item>(L, 1);
+	if (item) {
+		lua_pushnumber(L, item->getAutoID());
 	} else {
 		lua_pushnil(L);
 	}
@@ -6714,10 +6727,10 @@ int LuaScriptInterface::luaItemIsLoadedFromMap(lua_State* L)
 // Container
 int LuaScriptInterface::luaContainerCreate(lua_State* L)
 {
-	// Container(uid)
+	// Container(autoID)
 	uint32_t id = getNumber<uint32_t>(L, 2);
-
-	Container* container = getScriptEnv()->getContainerByUID(id);
+	Item* item = g_game.getItemByAutoID(id);
+	Container* container = item ? item->getContainer() : nullptr;
 	if (container) {
 		pushUserdata(L, container);
 		setMetatable(L, -1, "Container");

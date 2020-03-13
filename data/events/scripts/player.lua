@@ -18,6 +18,8 @@ function Player:onLook(thing, position, distance)
 				description = string.format("%s, Unique ID: %d", description, uniqueId)
 			end
 
+			description = string.format("%s, Auto ID: %d", description, thing:getAutoID())
+
 			local itemType = thing:getType()
 
 			local transformEquipId = itemType:getTransformEquipId()

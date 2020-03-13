@@ -362,6 +362,19 @@ void Game::internalGetPosition(Item* item, Position& pos, uint8_t& stackpos)
 	}
 }
 
+Item* Game::getItemByAutoID(uint32_t id)
+{
+	if (id == 0) {
+		return nullptr;
+	}
+
+	auto it = items.find(id);
+	if (it == items.end()) {
+		return nullptr;
+	}
+	return it->second;
+}
+
 Creature* Game::getCreatureByID(uint32_t id)
 {
 	if (id <= Player::playerAutoID) {
@@ -5599,6 +5612,16 @@ void Game::playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, ui
 			creatureEvent->executeModalWindow(player, modalWindowId, button, choice);
 		}
 	}
+}
+
+void Game::addItem(Item* item)
+{
+	items[item->getAutoID()] = item;
+}
+
+void Game::removeItem(Item* item)
+{
+	items.erase(item->getAutoID());
 }
 
 void Game::addPlayer(Player* player)

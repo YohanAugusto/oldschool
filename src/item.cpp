@@ -36,6 +36,7 @@ extern Spells* g_spells;
 extern Vocations g_vocations;
 
 Items Item::items;
+uint32_t Item::itemAutoID = 0;
 
 Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
 {
@@ -84,6 +85,8 @@ Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
 		}
 
 		newItem->incrementReferenceCounter();
+		newItem->setAutoID();
+		g_game.addItem(newItem);
 	}
 
 	return newItem;
