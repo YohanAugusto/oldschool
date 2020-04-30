@@ -1,13 +1,21 @@
-function onStepOut(creature, item, position, fromPosition)
-	if creature:isPlayer() and creature:isInGhostMode() then
+TILE_SNOW = 670
+TILE_FOOTPRINT_I = 6594
+TILE_FOOTPRINT_II = 6598
+
+function onStepIn(cid, item, position, lastPosition, fromPosition, toPosition, actor)
+	if(isPlayerGhost(cid)) then
 		return true
 	end
 
-	if item:getId() == 670 then
-		item:transform(6594)
+	if(item.itemid == TILE_SNOW) then
+		doTransformItem(item.uid, TILE_FOOTPRINT_I)
+		doDecayItem(item.uid)
+	elseif(item.itemid == TILE_FOOTPRINT_I) then
+		doTransformItem(item.uid, TILE_FOOTPRINT_II)
+		doDecayItem(item.uid)
 	else
-		item:transform(item.itemid + 15)
+		doTransformItem(item.uid, TILE_FOOTPRINT_I)
 	end
-	item:decay()
+
 	return true
 end
