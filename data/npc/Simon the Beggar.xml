@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<npc name="Simon the Beggar" script="data/npc/scripts/simon.lua" walkinterval="10000" access="3" floorchange="0">
+<npc name="Simon the Beggar" script="simon.lua" walkinterval="10000" access="3" floorchange="0">
 	<health now="100" max="100"/>
 	<look type="128" head="116" body="123" legs="32" feet="40"/>
   <parameters>

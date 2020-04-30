@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Beatrice" script="data/npc/scripts/default.lua" walkinterval="2000" floorchange="0">
+<npc name="Beatrice" script="default.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100"/>
 	<look type="136" head="96" body="102" legs="69" feet="95"/>
 	<parameters>
