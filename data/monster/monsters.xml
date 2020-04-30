@@ -17,10 +17,11 @@
 	<monster name="Bonebeast" file="bonebeast.xml"/>
 	<monster name="Bug" file="bug.xml"/>
 	<monster name="Butterfly" file="butterfly.xml"/>
-		<monster name="Butterfly Purple" file="butterfly purple.xml"/>
-		<monster name="Butterfly Yellow " file="butterfly yellow.xml"/>
-		<monster name="Butterfly Red" file="butterfly red.xml"/>
-		<monster name="Butterfly Blue" file="butterfly blue.xml"/>
+	<monster name="Butterfly Purple" file="butterfly purple.xml"/>
+	<monster name="Butterfly Yellow " file="butterfly yellow.xml"/>
+	<monster name="Butterfly Red" file="butterfly red.xml"/>
+	<monster name="Butterfly Blue" file="butterfly blue.xml"/>
+	<monster name="Blue Butterfly" file="butterfly blue.xml"/>
 	<monster name="Carniphila" file="carniphila.xml"/>
 	<monster name="Cave Rat" file="cave rat.xml"/>
 	<monster name="Centipede" file="centipede.xml"/>
