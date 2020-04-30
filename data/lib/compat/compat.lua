@@ -498,6 +498,7 @@ function getPlayerLearnedInstantSpell(cid, name) local p = Player(cid) return p 
 function isPlayerGhost(cid) local p = Player(cid) return p and p:isInGhostMode() or false end
 function isPlayerPzLocked(cid) local p = Player(cid) return p and p:isPzLocked() or false end
 function getBlessingsCost(level) return 0 end
+function getPvpBlessingCost(level) return 0 end
 function isPremium(cid) local p = Player(cid) return p and p:isPremium() or false end
 function getPlayersByIPAddress(ip, mask)
 	if mask == nil then mask = 0xFFFFFFFF end
