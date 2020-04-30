@@ -355,12 +355,4 @@
 		<movevent event="Equip" itemid="2175" slot="shield" function="onEquipItem">
 		</movevent>
 		<movevent event="DeEquip" itemid="2175" slot="shield" function="onDeEquipItem"/>
-
-	<!-- Bows and Crossbows -->
-		<!-- Crossbow -->
-	<movevent event="Equip" itemid="2455" slot="two-handed" function="onEquipItem"/>
-	<movevent event="DeEquip" itemid="2455" slot="two-handed" function="onDeEquipItem"/>
-		<!-- Bow -->
-	<movevent event="Equip" itemid="2456" slot="two-handed" function="onEquipItem"/>
-	<movevent event="DeEquip" itemid="2456" slot="two-handed" function="onDeEquipItem"/>
 </movements>
