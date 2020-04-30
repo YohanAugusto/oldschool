@@ -220,7 +220,6 @@ local storage, duration = 1.4, 0.8
 		end
 
 		if Player(focus) ~= nil then
-			closeShopWindow(focus) --Even if it can not exist, we need to prevent it.
 			self:updateFocus()
 		end
 	end
