@@ -93,7 +93,7 @@
 	<movevent event="StepIn" itemid="1512" script="trap.lua" />
 	<movevent event="StepOut" itemid="1513" script="trap.lua" />
 	<movevent event="StepIn" itemid="2579" script="trap.lua" />
-	<movevent type="RemoveItem" itemid="2579" script="trap.lua" />
+	<movevent event="RemoveItem" itemid="2579" script="trap.lua" />
 	<!-- Citizen teleport -->
 	<movevent event="StepIn" itemid="1387" script="citizen.lua" />
 	<!-- Walkback when walking on quest chest -->
